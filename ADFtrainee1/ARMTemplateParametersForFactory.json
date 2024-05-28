@@ -17,7 +17,7 @@
 		"AzureBlobStorage4_connectionString": {
 			"value": ""
 		},
-		"AzureSqlDatabase1_password": {
+		"AzureSqlDatabase1_connectionString": {
 			"value": ""
 		},
 		"AzureSqlDatabase2_connectionString": {
@@ -31,15 +31,6 @@
 		},
 		"SqlServer2_password": {
 			"value": ""
-		},
-		"AzureSqlDatabase1_properties_typeProperties_server": {
-			"value": "2024-06-adf-trainee.database.windows.net"
-		},
-		"AzureSqlDatabase1_properties_typeProperties_database": {
-			"value": "newDestinationDB"
-		},
-		"AzureSqlDatabase1_properties_typeProperties_userName": {
-			"value": "Manish"
 		},
 		"RestService1_properties_typeProperties_url": {
 			"value": "https://reqres.in/api/users"
