@@ -1,0 +1,9 @@
+{
+	"name": "ADFtrainee1",
+	"location": "southindia",
+	"identity": {
+		"type": "SystemAssigned",
+		"principalId": "9f287dd3-8ca2-4ee4-b371-916a783795a3",
+		"tenantId": "0948634d-e092-4c19-89fa-8deece1e9723"
+	}
+}

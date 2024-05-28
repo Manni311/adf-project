@@ -1,0 +1,70 @@
+{
+	"name": "web_pipeline",
+	"properties": {
+		"activities": [
+			{
+				"name": "get_full",
+				"type": "WebActivity",
+				"state": "Inactive",
+				"onInactiveMarkAs": "Succeeded",
+				"dependsOn": [],
+				"policy": {
+					"timeout": "0.12:00:00",
+					"retry": 0,
+					"retryIntervalInSeconds": 30,
+					"secureOutput": false,
+					"secureInput": false
+				},
+				"userProperties": [],
+				"typeProperties": {
+					"method": "GET",
+					"url": "https://dummy.restapiexample.com/api/v1/employees"
+				}
+			},
+			{
+				"name": "get",
+				"type": "WebActivity",
+				"state": "Inactive",
+				"onInactiveMarkAs": "Succeeded",
+				"dependsOn": [],
+				"policy": {
+					"timeout": "0.12:00:00",
+					"retry": 0,
+					"retryIntervalInSeconds": 30,
+					"secureOutput": false,
+					"secureInput": false
+				},
+				"userProperties": [],
+				"typeProperties": {
+					"method": "GET",
+					"url": "https://dummy.restapiexample.com/api/v1/employee/1"
+				}
+			},
+			{
+				"name": "post",
+				"type": "WebActivity",
+				"dependsOn": [],
+				"policy": {
+					"timeout": "0.12:00:00",
+					"retry": 0,
+					"retryIntervalInSeconds": 30,
+					"secureOutput": false,
+					"secureInput": false
+				},
+				"userProperties": [],
+				"typeProperties": {
+					"method": "POST",
+					"url": "\thttps://dummy.restapiexample.com/api/v1/create",
+					"body": {
+						"name": "MAnish",
+						"salary": "123",
+						"age": "23"
+					}
+				}
+			}
+		],
+		"annotations": [],
+		"lastPublishTime": "2024-05-22T19:24:12Z"
+	},
+	"type": "Microsoft.DataFactory/factories/pipelines"
+}

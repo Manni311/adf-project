@@ -1,0 +1,46 @@
+{
+	"name": "SqlServerTable2",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "SqlServer2",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "SqlServerTable",
+		"schema": [
+			{
+				"name": "productID",
+				"type": "float",
+				"precision": 15
+			},
+			{
+				"name": "Date",
+				"type": "date"
+			},
+			{
+				"name": "Zip",
+				"type": "float",
+				"precision": 15
+			},
+			{
+				"name": "unit",
+				"type": "float",
+				"precision": 15
+			},
+			{
+				"name": "Revenue",
+				"type": "float",
+				"precision": 15
+			},
+			{
+				"name": "country",
+				"type": "varchar"
+			}
+		],
+		"typeProperties": {
+			"schema": "dbo",
+			"table": "internationalsales"
+		}
+	},
+	"type": "Microsoft.DataFactory/factories/datasets"
+}
