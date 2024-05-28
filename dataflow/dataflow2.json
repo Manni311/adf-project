@@ -1,0 +1,53 @@
+{
+	"name": "dataflow2",
+	"properties": {
+		"type": "MappingDataFlow",
+		"typeProperties": {
+			"sources": [
+				{
+					"dataset": {
+						"referenceName": "Json3",
+						"type": "DatasetReference"
+					},
+					"name": "source1"
+				}
+			],
+			"sinks": [],
+			"transformations": [
+				{
+					"name": "split1"
+				},
+				{
+					"name": "rank1"
+				},
+				{
+					"name": "select1"
+				},
+				{
+					"name": "derivedColumn2"
+				}
+			],
+			"scriptLines": [
+				"source(output(",
+				"          ProductID as string,",
+				"          Date as string,",
+				"          Zip as string,",
+				"          Units as string,",
+				"          Revenue as string,",
+				"          Country as string",
+				"     ),",
+				"     allowSchemaDrift: true,",
+				"     validateSchema: false,",
+				"     ignoreNoFilesFound: false,",
+				"     documentForm: 'documentPerLine') ~> source1",
+				"source1 split(Country!='USA',",
+				"     disjoint: false) ~> split1@(usa)",
+				"select1 rank(desc(Revenue, true),",
+				"     output(Rank as long)) ~> rank1",
+				"derivedColumn2 select(skipDuplicateMapInputs: true,",
+				"     skipDuplicateMapOutputs: true) ~> select1",
+				"split1@usa derive(region = left(Country,2)) ~> derivedColumn2"
+			]
+		}
+	}
+}
