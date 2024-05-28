@@ -7,7 +7,28 @@
 		},
 		"annotations": [],
 		"type": "AzureSqlTable",
-		"schema": [],
+		"schema": [
+			{
+				"name": "ProductID",
+				"type": "nvarchar"
+			},
+			{
+				"name": "Date",
+				"type": "nvarchar"
+			},
+			{
+				"name": "Zip",
+				"type": "nvarchar"
+			},
+			{
+				"name": "Units",
+				"type": "nvarchar"
+			},
+			{
+				"name": "Revenue",
+				"type": "nvarchar"
+			}
+		],
 		"typeProperties": {
 			"schema": "prod",
 			"table": "ussales"
