@@ -9,37 +9,17 @@
 		"type": "SqlServerTable",
 		"schema": [
 			{
-				"name": "productID",
-				"type": "float",
-				"precision": 15
+				"name": "status",
+				"type": "nvarchar"
 			},
 			{
-				"name": "Date",
-				"type": "date"
-			},
-			{
-				"name": "Zip",
-				"type": "float",
-				"precision": 15
-			},
-			{
-				"name": "unit",
-				"type": "float",
-				"precision": 15
-			},
-			{
-				"name": "Revenue",
-				"type": "float",
-				"precision": 15
-			},
-			{
-				"name": "country",
-				"type": "varchar"
+				"name": "message",
+				"type": "nvarchar"
 			}
 		],
 		"typeProperties": {
 			"schema": "dbo",
-			"table": "internationalsales"
+			"table": "web_data_for"
 		}
 	},
 	"type": "Microsoft.DataFactory/factories/datasets"
