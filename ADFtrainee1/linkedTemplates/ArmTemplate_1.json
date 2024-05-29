@@ -997,7 +997,7 @@
 			]
 		},
 		{
-			"name": "[concat(parameters('factoryName'), '/SqlServerTable2')]",
+			"name": "[concat(parameters('factoryName'), '/SqlServerTable10')]",
 			"type": "Microsoft.DataFactory/factories/datasets",
 			"apiVersion": "2018-06-01",
 			"properties": {
@@ -1005,21 +1005,20 @@
 					"referenceName": "SqlServer2",
 					"type": "LinkedServiceReference"
 				},
+				"parameters": {
+					"tableNames1": {
+						"type": "string"
+					}
+				},
 				"annotations": [],
 				"type": "SqlServerTable",
-				"schema": [
-					{
-						"name": "status",
-						"type": "nvarchar"
-					},
-					{
-						"name": "message",
-						"type": "nvarchar"
-					}
-				],
+				"schema": [],
 				"typeProperties": {
 					"schema": "dbo",
-					"table": "depart"
+					"table": {
+						"value": "@dataset().tableNames1",
+						"type": "Expression"
+					}
 				}
 			},
 			"dependsOn": [
