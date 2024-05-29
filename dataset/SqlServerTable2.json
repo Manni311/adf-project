@@ -19,7 +19,7 @@
 		],
 		"typeProperties": {
 			"schema": "dbo",
-			"table": "web_data_for"
+			"table": "excel"
 		}
 	},
 	"type": "Microsoft.DataFactory/factories/datasets"

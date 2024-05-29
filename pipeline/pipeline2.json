@@ -26,7 +26,8 @@
 					"sink": {
 						"type": "SqlServerSink",
 						"writeBehavior": "insert",
-						"sqlWriterUseTableLock": false
+						"sqlWriterUseTableLock": false,
+						"tableOption": "autoCreate"
 					},
 					"enableStaging": false,
 					"translator": {
@@ -39,80 +40,21 @@
 									"physicalType": "String"
 								},
 								"sink": {
-									"name": "OrderDate",
-									"type": "DateTime",
-									"physicalType": "date"
+									"name": "status",
+									"type": "String",
+									"physicalType": "nvarchar"
 								}
 							},
 							{
 								"source": {
 									"name": "Region",
-									"type": "String"
-								},
-								"sink": {
-									"name": "Region",
-									"type": "String",
-									"physicalType": "varchar"
-								}
-							},
-							{
-								"source": {
-									"name": "Rep",
-									"type": "String"
-								},
-								"sink": {
-									"name": "Rep",
-									"type": "String",
-									"physicalType": "varchar"
-								}
-							},
-							{
-								"source": {
-									"name": "Item",
-									"type": "String"
-								},
-								"sink": {
-									"name": "Item",
-									"type": "String",
-									"physicalType": "varchar"
-								}
-							},
-							{
-								"source": {
-									"name": "Units",
-									"type": "String"
-								},
-								"sink": {
-									"name": "Units",
-									"type": "Int32",
-									"physicalType": "int"
-								}
-							},
-							{
-								"source": {
-									"name": "Unit Cost",
 									"type": "String",
 									"physicalType": "String"
 								},
 								"sink": {
-									"name": "UnitCost",
-									"type": "Decimal",
-									"physicalType": "decimal",
-									"scale": 2,
-									"precision": 10
-								}
-							},
-							{
-								"source": {
-									"name": "Total",
-									"type": "String"
-								},
-								"sink": {
-									"name": "Total",
-									"type": "Decimal",
-									"physicalType": "decimal",
-									"scale": 2,
-									"precision": 10
+									"name": "message",
+									"type": "String",
+									"physicalType": "nvarchar"
 								}
 							}
 						],
