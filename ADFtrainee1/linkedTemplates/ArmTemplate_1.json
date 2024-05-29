@@ -356,7 +356,7 @@
 				"typeProperties": {
 					"location": {
 						"type": "AzureBlobStorageLocation",
-						"fileName": "newsales",
+						"fileName": "newsale",
 						"container": "manniblobstorage"
 					}
 				},
@@ -786,7 +786,8 @@
 							"sink": {
 								"type": "JsonSink",
 								"storeSettings": {
-									"type": "AzureBlobStorageWriteSettings"
+									"type": "AzureBlobStorageWriteSettings",
+									"blockSizeInMB": 4
 								},
 								"formatSettings": {
 									"type": "JsonWriteSettings"
