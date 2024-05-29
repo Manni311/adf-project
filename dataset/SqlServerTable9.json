@@ -1,0 +1,27 @@
+{
+	"name": "SqlServerTable9",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "SqlServer2",
+			"type": "LinkedServiceReference"
+		},
+		"parameters": {
+			"tablename": {
+				"type": "string"
+			}
+		},
+		"annotations": [],
+		"type": "SqlServerTable",
+		"schema": [],
+		"typeProperties": {
+			"schema": {
+				"value": "@split(dataset().tablename,'.')[0]",
+				"type": "Expression"
+			},
+			"table": {
+				"value": "@split(dataset().tablename,'.')[1]",
+				"type": "Expression"
+			}
+		}
+	}
+}
