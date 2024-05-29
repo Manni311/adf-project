@@ -19,7 +19,7 @@
 		],
 		"typeProperties": {
 			"schema": "dbo",
-			"table": "Dep"
+			"table": "depart"
 		}
 	},
 	"type": "Microsoft.DataFactory/factories/datasets"
