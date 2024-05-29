@@ -49,7 +49,7 @@
 		},
 		"RestService1_properties_typeProperties_url": {
 			"type": "string",
-			"defaultValue": "https://reqres.in/api/users"
+			"defaultValue": "https://reqres.in/api/users/"
 		},
 		"SqlServer1_properties_typeProperties_server": {
 			"type": "string",
@@ -216,26 +216,6 @@
 			},
 			"dependsOn": [
 				"[resourceId('Microsoft.Resources/deployments', 'ADFtrainee1_ArmTemplate_1')]"
-			]
-		},
-		{
-			"name": "ADFtrainee1_ArmTemplate_3",
-			"type": "Microsoft.Resources/deployments",
-			"apiVersion": "2018-02-01",
-			"properties": {
-				"mode": "incremental",
-				"templateLink": {
-					"uri": "[concat(parameters('containerUri'), '/ArmTemplate_3.json', parameters('containerSasToken'))]",
-					"contentVersion": "1.0.0.0"
-				},
-				"parameters": {
-					"factoryName": {
-						"value": "[parameters('factoryName')]"
-					}
-				}
-			},
-			"dependsOn": [
-				"[resourceId('Microsoft.Resources/deployments', 'ADFtrainee1_ArmTemplate_2')]"
 			]
 		}
 	]

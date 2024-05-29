@@ -37,7 +37,7 @@
 		},
 		"RestService1_properties_typeProperties_url": {
 			"type": "string",
-			"defaultValue": "https://reqres.in/api/users"
+			"defaultValue": "https://reqres.in/api/users/"
 		}
 	},
 	"variables": {

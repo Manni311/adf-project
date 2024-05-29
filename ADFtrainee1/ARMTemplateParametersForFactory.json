@@ -36,7 +36,7 @@
 			"value": ""
 		},
 		"RestService1_properties_typeProperties_url": {
-			"value": "https://reqres.in/api/users"
+			"value": "https://reqres.in/api/users/"
 		},
 		"SqlServer1_properties_typeProperties_server": {
 			"value": "DESKTOP-5P2TI3D\\SQLEXPRESS"
