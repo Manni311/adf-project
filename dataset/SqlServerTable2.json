@@ -19,7 +19,7 @@
 		],
 		"typeProperties": {
 			"schema": "dbo",
-			"table": "excel"
+			"table": "Dep"
 		}
 	},
 	"type": "Microsoft.DataFactory/factories/datasets"
