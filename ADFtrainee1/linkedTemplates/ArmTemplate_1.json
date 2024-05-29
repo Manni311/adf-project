@@ -1109,7 +1109,7 @@
 				],
 				"typeProperties": {
 					"schema": "dbo",
-					"table": "Dep"
+					"table": "depart"
 				}
 			},
 			"dependsOn": [
