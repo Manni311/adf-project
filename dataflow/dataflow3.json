@@ -50,9 +50,6 @@
 				}
 			],
 			"scriptLines": [
-				"parameters{",
-				"     parameter1 as string",
-				"}",
 				"source(output(",
 				"          CustomerID as integer,",
 				"          PersonID as integer,",
