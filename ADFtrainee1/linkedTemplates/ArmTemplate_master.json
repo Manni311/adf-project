@@ -43,6 +43,10 @@
 			"type": "secureString",
 			"metadata": "Secure string for 'password' of 'SqlServer2'"
 		},
+		"storeprocedure_password": {
+			"type": "secureString",
+			"metadata": "Secure string for 'password' of 'storeprocedure'"
+		},
 		"RestService1_properties_typeProperties_url": {
 			"type": "string",
 			"defaultValue": "https://reqres.in/api/users"
@@ -68,6 +72,18 @@
 			"defaultValue": "destinationDB"
 		},
 		"SqlServer2_properties_typeProperties_userName": {
+			"type": "string",
+			"defaultValue": "Manish"
+		},
+		"storeprocedure_properties_typeProperties_server": {
+			"type": "string",
+			"defaultValue": "DESKTOP-5P2TI3D\\SQLEXPRESS"
+		},
+		"storeprocedure_properties_typeProperties_database": {
+			"type": "string",
+			"defaultValue": "destinationDB"
+		},
+		"storeprocedure_properties_typeProperties_userName": {
 			"type": "string",
 			"defaultValue": "Manish"
 		},
@@ -146,6 +162,9 @@
 					"SqlServer2_password": {
 						"value": "[parameters('SqlServer2_password')]"
 					},
+					"storeprocedure_password": {
+						"value": "[parameters('storeprocedure_password')]"
+					},
 					"SqlServer1_properties_typeProperties_server": {
 						"value": "[parameters('SqlServer1_properties_typeProperties_server')]"
 					},
@@ -163,6 +182,15 @@
 					},
 					"SqlServer2_properties_typeProperties_userName": {
 						"value": "[parameters('SqlServer2_properties_typeProperties_userName')]"
+					},
+					"storeprocedure_properties_typeProperties_server": {
+						"value": "[parameters('storeprocedure_properties_typeProperties_server')]"
+					},
+					"storeprocedure_properties_typeProperties_database": {
+						"value": "[parameters('storeprocedure_properties_typeProperties_database')]"
+					},
+					"storeprocedure_properties_typeProperties_userName": {
+						"value": "[parameters('storeprocedure_properties_typeProperties_userName')]"
 					}
 				}
 			},

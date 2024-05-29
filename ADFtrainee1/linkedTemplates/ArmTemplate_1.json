@@ -15,6 +15,10 @@
 			"type": "secureString",
 			"metadata": "Secure string for 'password' of 'SqlServer2'"
 		},
+		"storeprocedure_password": {
+			"type": "secureString",
+			"metadata": "Secure string for 'password' of 'storeprocedure'"
+		},
 		"SqlServer1_properties_typeProperties_server": {
 			"type": "string",
 			"defaultValue": "DESKTOP-5P2TI3D\\SQLEXPRESS"
@@ -36,6 +40,18 @@
 			"defaultValue": "destinationDB"
 		},
 		"SqlServer2_properties_typeProperties_userName": {
+			"type": "string",
+			"defaultValue": "Manish"
+		},
+		"storeprocedure_properties_typeProperties_server": {
+			"type": "string",
+			"defaultValue": "DESKTOP-5P2TI3D\\SQLEXPRESS"
+		},
+		"storeprocedure_properties_typeProperties_database": {
+			"type": "string",
+			"defaultValue": "destinationDB"
+		},
+		"storeprocedure_properties_typeProperties_userName": {
 			"type": "string",
 			"defaultValue": "Manish"
 		}
@@ -717,6 +733,33 @@
 			"dependsOn": []
 		},
 		{
+			"name": "[concat(parameters('factoryName'), '/storeprocedure')]",
+			"type": "Microsoft.DataFactory/factories/linkedServices",
+			"apiVersion": "2018-06-01",
+			"properties": {
+				"annotations": [],
+				"type": "SqlServer",
+				"typeProperties": {
+					"server": "[parameters('storeprocedure_properties_typeProperties_server')]",
+					"database": "[parameters('storeprocedure_properties_typeProperties_database')]",
+					"encrypt": "optional",
+					"trustServerCertificate": false,
+					"hostNameInCertificate": "",
+					"authenticationType": "Windows",
+					"userName": "[parameters('storeprocedure_properties_typeProperties_userName')]",
+					"password": {
+						"type": "SecureString",
+						"value": "[parameters('storeprocedure_password')]"
+					}
+				},
+				"connectVia": {
+					"referenceName": "integrationRuntime1",
+					"type": "IntegrationRuntimeReference"
+				}
+			},
+			"dependsOn": []
+		},
+		{
 			"name": "[concat(parameters('factoryName'), '/container_store')]",
 			"type": "Microsoft.DataFactory/factories/pipelines",
 			"apiVersion": "2018-06-01",
@@ -976,52 +1019,6 @@
 				"typeProperties": {
 					"schema": "dbo",
 					"table": "depart"
-				}
-			},
-			"dependsOn": [
-				"[concat(variables('factoryId'), '/linkedServices/SqlServer2')]"
-			]
-		},
-		{
-			"name": "[concat(parameters('factoryName'), '/SqlServerTable3')]",
-			"type": "Microsoft.DataFactory/factories/datasets",
-			"apiVersion": "2018-06-01",
-			"properties": {
-				"linkedServiceName": {
-					"referenceName": "SqlServer2",
-					"type": "LinkedServiceReference"
-				},
-				"annotations": [],
-				"type": "SqlServerTable",
-				"schema": [
-					{
-						"name": "ProductID",
-						"type": "nvarchar"
-					},
-					{
-						"name": "Date",
-						"type": "nvarchar"
-					},
-					{
-						"name": "Zip",
-						"type": "nvarchar"
-					},
-					{
-						"name": "Units",
-						"type": "nvarchar"
-					},
-					{
-						"name": "Revenue",
-						"type": "nvarchar"
-					},
-					{
-						"name": "Country",
-						"type": "nvarchar"
-					}
-				],
-				"typeProperties": {
-					"schema": "dbo",
-					"table": "internationalsales"
 				}
 			},
 			"dependsOn": [

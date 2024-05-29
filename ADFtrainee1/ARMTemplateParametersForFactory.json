@@ -32,6 +32,9 @@
 		"SqlServer2_password": {
 			"value": ""
 		},
+		"storeprocedure_password": {
+			"value": ""
+		},
 		"RestService1_properties_typeProperties_url": {
 			"value": "https://reqres.in/api/users"
 		},
@@ -51,6 +54,15 @@
 			"value": "destinationDB"
 		},
 		"SqlServer2_properties_typeProperties_userName": {
+			"value": "Manish"
+		},
+		"storeprocedure_properties_typeProperties_server": {
+			"value": "DESKTOP-5P2TI3D\\SQLEXPRESS"
+		},
+		"storeprocedure_properties_typeProperties_database": {
+			"value": "destinationDB"
+		},
+		"storeprocedure_properties_typeProperties_userName": {
 			"value": "Manish"
 		}
 	}
