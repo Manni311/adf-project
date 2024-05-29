@@ -6,7 +6,7 @@
 			"type": "LinkedServiceReference"
 		},
 		"parameters": {
-			"employee_id": {
+			"id": {
 				"type": "string"
 			}
 		},
@@ -14,7 +14,7 @@
 		"type": "RestResource",
 		"typeProperties": {
 			"relativeUrl": {
-				"value": "@dataset().employee_id",
+				"value": "@dataset().id",
 				"type": "Expression"
 			}
 		},
