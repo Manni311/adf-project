@@ -1,13 +1,19 @@
 {
 	"name": "RestService1",
+	"type": "Microsoft.DataFactory/factories/linkedservices",
 	"properties": {
 		"annotations": [],
 		"type": "RestService",
 		"typeProperties": {
-			"url": "https://reqres.in/api/users/",
+			"url": "https://newsapi.org/v2/everything?q=tesla&from=2024-06-05&sortBy=publishedAt",
 			"enableServerCertificateValidation": true,
-			"authenticationType": "Anonymous"
+			"authenticationType": "Anonymous",
+			"authHeaders": {
+				"Authorization": {
+					"type": "SecureString",
+					"value": "**********"
+				}
+			}
 		}
-	},
-	"type": "Microsoft.DataFactory/factories/linkedservices"
+	}
 }
