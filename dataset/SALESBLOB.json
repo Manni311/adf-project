@@ -1,8 +1,8 @@
 {
-	"name": "SqlServerTable1",
+	"name": "SALESBLOB",
 	"properties": {
 		"linkedServiceName": {
-			"referenceName": "SqlServer1",
+			"referenceName": "AzureBlobStorage1",
 			"type": "LinkedServiceReference"
 		},
 		"parameters": {
@@ -11,15 +11,20 @@
 			}
 		},
 		"annotations": [],
-		"type": "SqlServerTable",
-		"schema": [],
+		"type": "Excel",
 		"typeProperties": {
-			"schema": "stage",
-			"table": {
+			"sheetName": {
 				"value": "@dataset().worksheet",
 				"type": "Expression"
-			}
-		}
+			},
+			"location": {
+				"type": "AzureBlobStorageLocation",
+				"fileName": "DataSample.xlsx",
+				"container": "sales"
+			},
+			"firstRowAsHeader": true
+		},
+		"schema": []
 	},
 	"type": "Microsoft.DataFactory/factories/datasets"
 }

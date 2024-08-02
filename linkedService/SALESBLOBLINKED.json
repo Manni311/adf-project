@@ -1,0 +1,12 @@
+{
+	"name": "SALESBLOBLINKED",
+	"type": "Microsoft.DataFactory/factories/linkedservices",
+	"properties": {
+		"annotations": [],
+		"type": "AzureBlobStorage",
+		"typeProperties": {
+			"containerUri": "https://mannistorage.blob.core.windows.net/sales",
+			"authenticationType": "Anonymous"
+		}
+	}
+}

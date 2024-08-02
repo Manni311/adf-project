@@ -1,0 +1,9 @@
+{
+	"name": "adfdatafactory311",
+	"location": "southindia",
+	"identity": {
+		"type": "SystemAssigned",
+		"principalId": "f9a0550f-cef3-4afa-8420-59b8adf33234",
+		"tenantId": "9170a6ec-7fdc-4638-872b-d2aa2ffdb86e"
+	}
+}
