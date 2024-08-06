@@ -35,7 +35,7 @@
 			"scriptLines": [
 				"source(output(",
 				"          InvoiceNumber as string,",
-				"          Date as date,",
+				"          Date as string,",
 				"          Type as string,",
 				"          Period as string,",
 				"          DueDate as string,",
@@ -64,7 +64,16 @@
 				"     ignoreSpaces: false,",
 				"     broadcast: 'auto')~> join1",
 				"join1 derive(skdate = toString(Date, 'ddMMyyyy'),",
-				"          {Charecontrol number} = ERROR_FUNCTION('')) ~> skdate"
+				"          {Charecontrol number} = concat(Type+'-'+InvoiceNumber),",
+				"          {Filename          } = concat('sales', toString(currentDate(), 'ddMMyyyy'), '.xlsx'),",
+				"          {AsOfDate   } = toString(\r",
+				"    addDays(\r",
+				"        addMonths(toDate(Date, 'yyyy-MM-dd'), 1), \r",
+				"        -1\r",
+				"    ), \r",
+				"    'yyyy-MM-dd'\r",
+				")\r",
+				") ~> skdate"
 			]
 		}
 	}
