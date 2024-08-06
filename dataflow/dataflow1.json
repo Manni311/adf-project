@@ -26,7 +26,11 @@
 						"type": "DatasetReference"
 					},
 					"name": "sink1",
-					"description": "transfer data to localdatabase"
+					"description": "transfer data to localdatabase",
+					"rejectedDataLinkedService": {
+						"referenceName": "AzureBlobStorage5",
+						"type": "LinkedServiceReference"
+					}
 				}
 			],
 			"transformations": [
