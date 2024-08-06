@@ -19,7 +19,16 @@
 					"name": "source2"
 				}
 			],
-			"sinks": [],
+			"sinks": [
+				{
+					"dataset": {
+						"referenceName": "serveradffinal",
+						"type": "DatasetReference"
+					},
+					"name": "sink1",
+					"description": "transfer data to localdatabase"
+				}
+			],
 			"transformations": [
 				{
 					"name": "derivedColumn1"
@@ -30,6 +39,9 @@
 				},
 				{
 					"name": "skdate"
+				},
+				{
+					"name": "idcolumn"
 				}
 			],
 			"scriptLines": [
@@ -161,7 +173,20 @@
 				"       )\r",
 				"    )\r",
 				")\r",
-				") ~> skdate"
+				") ~> skdate",
+				"derivedColumn1 keyGenerate(output(id as long),",
+				"     startAt: 1L,",
+				"     stepValue: 1L) ~> idcolumn",
+				"idcolumn sink(allowSchemaDrift: true,",
+				"     validateSchema: false,",
+				"     deletable:false,",
+				"     insertable:true,",
+				"     updateable:false,",
+				"     upsertable:false,",
+				"     recreate:true,",
+				"     format: 'table',",
+				"     skipDuplicateMapInputs: true,",
+				"     skipDuplicateMapOutputs: true) ~> sink1"
 			]
 		}
 	}
