@@ -1,0 +1,71 @@
+{
+	"name": "dataflow1",
+	"properties": {
+		"type": "MappingDataFlow",
+		"typeProperties": {
+			"sources": [
+				{
+					"dataset": {
+						"referenceName": "Excel2",
+						"type": "DatasetReference"
+					},
+					"name": "source1"
+				},
+				{
+					"dataset": {
+						"referenceName": "typeexcel",
+						"type": "DatasetReference"
+					},
+					"name": "source2"
+				}
+			],
+			"sinks": [],
+			"transformations": [
+				{
+					"name": "derivedColumn1"
+				},
+				{
+					"name": "join1",
+					"description": "joining to source 2"
+				},
+				{
+					"name": "skdate"
+				}
+			],
+			"scriptLines": [
+				"source(output(",
+				"          InvoiceNumber as string,",
+				"          Date as date,",
+				"          Type as string,",
+				"          Period as string,",
+				"          DueDate as string,",
+				"          InvoiceDate as string,",
+				"          FromDate as string,",
+				"          ToDate as string,",
+				"          NetAmount as string,",
+				"          VatAmount as string,",
+				"          grossValue as string",
+				"     ),",
+				"     allowSchemaDrift: true,",
+				"     validateSchema: false,",
+				"     ignoreNoFilesFound: false) ~> source1",
+				"source(output(",
+				"          SKTransType as string,",
+				"          BKTransType as string,",
+				"          TransDesc as string",
+				"     ),",
+				"     allowSchemaDrift: true,",
+				"     validateSchema: false,",
+				"     ignoreNoFilesFound: false) ~> source2",
+				"skdate derive(Date = toString(toDate(Date, 'yyyy-MM-dd'), 'dd-MM-yyyy')) ~> derivedColumn1",
+				"source1, source2 join(Type == BKTransType,",
+				"     joinType:'inner',",
+				"     matchType:'exact',",
+				"     ignoreSpaces: false,",
+				"     broadcast: 'auto')~> join1",
+				"join1 derive(skdate = toString(Date, 'ddMMyyyy'),",
+				"          {Charecontrol number} = ERROR_FUNCTION('')) ~> skdate"
+			]
+		}
+	}
+}
