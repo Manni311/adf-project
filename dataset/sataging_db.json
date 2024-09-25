@@ -1,0 +1,12 @@
+{
+	"name": "sataging_db",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "adventure2017link",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "AzureSqlTable",
+		"schema": []
+	}
+}
